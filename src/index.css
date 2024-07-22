@@ -1,13 +1,109 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-primary
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .navbar-container {
+    @apply bg-[#ef5350] text-white relative
+  }
+  .navbar-wrapper {
+    @apply container mx-auto p-4 flex items-center justify-between
+  }
+  .navbar-title {
+    @apply text-2xl font-bold cursor-pointer
+  }
+  .nav-menu {
+    @apply block lg:inline-block px-4 py-2 text-white hover:bg-secondaryRed rounded-sm
+  }
+  .navbar-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-10
+  }
+  .navbar-mobile {
+    @apply fixed inset-y-0 right-0 bg-red text-white w-64 p-4 z-20 transform transition-transform duration-300 ease-in-out
+  }
+  .nav-menu-mobile {
+    @apply block px-4 py-2 bg-[#AC4139] my-2 rounded-md text-white
+  }
+  .page-title {
+    @apply text-4xl font-bold text-center mb-8
+  }
+  .container-list {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4
+  }
+  .card-list {
+    @apply bg-white rounded-lg shadow-lg p-4 text-center transform hover:scale-105 transition-transform duration-200
+  }
+  .card-image {
+    @apply w-full h-32 object-contain mb-2
+  }
+  .text-card {
+    @apply text-lg font-bold capitalize
+  }
+  .container-my-list {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4
+  }
+  .card-my-list {
+    @apply bg-white rounded-lg shadow-lg p-4 text-center
+  }
+  .card-detail {
+    @apply bg-white text-black rounded-lg shadow-lg p-4 flex flex-col items-center
+  }
+  .text-name {
+    @apply text-3xl font-bold mb-4 capitalize
+  }
+  .detail-image {
+    @apply w-48 h-48 object-contain mb-4 lg:mb-0 lg:mr-4
+  }
+  .text-detail { 
+    @apply text-xl font-semibold mb-2
+  }
+  .detail-box {
+    @apply bg-gray-700 text-white rounded-full px-4 py-1 text-sm
+  }
+  .btn-primary {
+    @apply mt-4 bg-yellow text-black p-2 rounded hover:bg-yellowSecondary transition-colors
+  }
+  .btn-secondary {
+    @apply mt-4 bg-red text-white p-2 rounded hover:bg-secondaryRed transition-colors
+  }
+  .text-input {
+    @apply border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow
+  }
+  .modal-overlay {
+    @apply fixed p-4 inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300 ease-in-out
+  }
+  .modal-card {
+    @apply bg-white rounded-lg p-6 w-full max-w-lg shadow-lg
+  }
+  .modal-header-wrapper {
+    @apply flex justify-between items-center mb-4
+  }
+  .modal-title {
+    @apply text-2xl font-bold
+  }
+  .loader {
+    border-top-color: #FFC90D !important;
+    animation: spinner 1.5s linear infinite;
+  }
+  .transition-colors {
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  .transition-transform {
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
